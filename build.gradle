@@ -19,8 +19,9 @@ dependencies {
 	runtimeOnly 'org.postgresql:postgresql'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.boot:spring-boot-docker-compose'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+//	implementation 'org.springframework.boot:spring-boot-docker-compose'
+//	implementation 'org.springframework.boot:spring-boot-testcontainers'
+	testImplementation 'org.springframework.boot:spring-boot-devtools'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.boot:spring-boot-testcontainers'
 }

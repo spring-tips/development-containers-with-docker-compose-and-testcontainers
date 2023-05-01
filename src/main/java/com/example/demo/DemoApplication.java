@@ -8,7 +8,10 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Optional;
 
 @SpringBootApplication
 public class DemoApplication {
@@ -28,20 +31,27 @@ class CustomerHttpController {
 
     private final CustomerRepository repository;
 
-    CustomerHttpController(
-            CustomerRepository repository) {
+    CustomerHttpController(CustomerRepository repository) {
         this.repository = repository;
     }
 
-    @GetMapping("/customers/{name}")
-    Iterable<Customer> byName(@PathVariable String name) {
-        return this.repository.findByName(name);
+    @GetMapping("/customers")
+    Iterable<Customer> byName(@RequestParam Optional<String> name) {
+        System.out.println("by name? "   +
+                           name.isPresent());
+        var customers = name
+                .map(this.repository::findByName)
+                .orElse(this.repository.findAll());
+        return customers;
     }
 
-    @GetMapping("/customers")
-    Iterable<Customer> customers() {
-        return this.repository.findAll();
+    @GetMapping("/customers/{id}")
+    Customer byId(@PathVariable Integer id) {
+        return this.repository
+                .findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("the id is null"));
     }
+
 }
 
 
