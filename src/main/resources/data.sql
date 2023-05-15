@@ -1,7 +1,11 @@
 delete from customer;
-insert into customer (name) values ('dashaun');
-insert into customer (name) values ('mario');
-insert into customer (name) values ('jakub');
-insert into customer (name) values ('whitney');
-insert into customer (name) values ('leigh');
-insert into customer (name) values ('layla');
+insert into customer (name) values ('Phil');
+insert into customer (name) values ('Andy');
+insert into customer (name) values ('Madhura');
+insert into customer (name) values ('Olga');
+insert into customer (name) values ('Violetta');
+insert into customer (name) values ('Yuxin');
+insert into customer (name) values ('Dr. Syer');
+insert into customer (name) values ('Stéphane');
+insert into customer (name) values ('Jürgen');
+insert into customer (name) values ('Josh');
